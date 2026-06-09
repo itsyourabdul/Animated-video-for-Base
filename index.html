@@ -266,7 +266,7 @@ font-size: 15px;
 color: var(--text-muted);
 }
 
-/* App Mockup - ENHANCED FEED */
+/* App Mockup - ENHANCED with TABS: Feed + Swap (Base Mainnet) */
 .app-mockup {
 width: 100%;
 max-width: 380px;
@@ -292,140 +292,140 @@ gap: 12px;
 font-size: 18px;
 }
 
-.mockup-feed-header {
-height: 70px;
-background: rgba(255, 255, 255, 0.05);
-border-bottom: 1px solid var(--border-color);
+.mockup-tabs {
 display: flex;
-align-items: center;
-padding: 0 24px;
-font-weight: 600;
-gap: 12px;
-font-size: 18px;
-}
-
-.feed-feature-bar {
-font-size: 13px;
-color: var(--base-blue);
-padding: 0 24px 12px;
-font-family: var(--font-mono);
-display: flex;
-align-items: center;
+padding: 12px 24px 12px;
 gap: 8px;
 border-bottom: 1px solid rgba(255,255,255,0.08);
 }
 
-.feed-carousel {
-overflow-x: auto;
-padding: 16px 24px 12px;
-scrollbar-width: none;
+.tab {
+flex: 1;
+padding: 10px 16px;
+background: rgba(255,255,255,0.05);
+border: 1px solid transparent;
+border-radius: 9999px;
+font-size: 14px;
+font-weight: 600;
+color: var(--text-muted);
+text-align: center;
+cursor: pointer;
+transition: all 0.3s ease;
 }
 
-.feed-carousel::-webkit-scrollbar {
-display: none;
-}
-
-.carousel-inner {
-display: flex;
-gap: 16px;
-width: max-content;
-animation: scrollCarousel 22s linear infinite;
-}
-
-.carousel-inner:hover {
-animation-play-state: paused;
-}
-
-.carousel-card {
-background: rgba(255,255,255,0.06);
-border: 1px solid var(--border-color);
-border-radius: 20px;
-padding: 18px;
-min-width: 210px;
-box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-display: flex;
-flex-direction: column;
-}
-
-.carousel-card:hover {
-transform: scale(1.06) translateY(-4px);
+.tab.active {
+background: var(--base-blue);
+color: white;
 border-color: var(--base-blue);
 }
 
-.card-icon {
-font-size: 32px;
-margin-bottom: 12px;
-}
-
-.card-title {
-font-weight: 600;
-font-size: 15px;
-margin-bottom: 4px;
-}
-
-.card-value {
-font-size: 17px;
-font-weight: 700;
-color: #00ff9d;
-margin-bottom: 6px;
-}
-
-.card-desc {
-font-size: 13px;
-color: var(--text-muted);
-}
-
-.feed-posts {
-padding: 0 24px 24px;
-max-height: calc(100% - 170px);
+.feed-content,
+.swap-content {
+height: calc(100% - 178px);
 overflow-y: auto;
 scrollbar-width: none;
-display: flex;
-flex-direction: column;
-gap: 14px;
+padding: 0 24px 24px;
 }
 
-.feed-posts::-webkit-scrollbar {
+.feed-content::-webkit-scrollbar,
+.swap-content::-webkit-scrollbar {
 display: none;
 }
 
-.post {
-background: rgba(255, 255, 255, 0.03);
+/* Swap UI - Real Base Mainnet tokens & feel */
+.swap-box {
+background: rgba(255,255,255,0.06);
 border: 1px solid var(--border-color);
-border-radius: 18px;
+border-radius: 20px;
+padding: 20px;
+margin-bottom: 12px;
+}
+
+.token-header {
+display: flex;
+justify-content: space-between;
+align-items: center;
+margin-bottom: 12px;
+font-size: 14px;
+color: var(--text-muted);
+font-family: var(--font-mono);
+}
+
+.token-main {
+display: flex;
+align-items: center;
+gap: 12px;
+}
+
+.token-main input {
+background: transparent;
+border: none;
+outline: none;
+font-size: 32px;
+font-weight: 600;
+color: var(--text-main);
+width: 100%;
+flex: 1;
+}
+
+.token-select {
+display: flex;
+align-items: center;
+gap: 8px;
+background: rgba(255,255,255,0.1);
+padding: 8px 16px;
+border-radius: 9999px;
+cursor: pointer;
+font-weight: 600;
+transition: background 0.2s;
+}
+
+.token-select:hover {
+background: rgba(0,82,255,0.2);
+}
+
+.swap-arrow {
+text-align: center;
+font-size: 32px;
+color: var(--base-blue);
+margin: 4px 0 16px;
+cursor: pointer;
+user-select: none;
+}
+
+.swap-details {
+font-size: 13px;
+color: var(--text-muted);
+background: rgba(255,255,255,0.03);
+border-radius: 16px;
+padding: 16px;
+}
+
+.swap-details div {
+display: flex;
+justify-content: space-between;
+margin-bottom: 8px;
+}
+
+.swap-details div:last-child {
+margin-bottom: 0;
+}
+
+#swap-btn {
+width: 100%;
+background: var(--base-blue);
+color: white;
+border: none;
 padding: 18px;
-font-size: 14.5px;
-line-height: 1.4;
+border-radius: 9999px;
+font-size: 18px;
+font-weight: 700;
+margin-top: 24px;
 transition: all 0.3s ease;
-animation: postPop 0.8s ease backwards;
 }
 
-.post:hover {
-background: rgba(255, 255, 255, 0.1);
-transform: translateX(4px);
-}
-
-.post:nth-child(1) { animation-delay: 100ms; }
-.post:nth-child(2) { animation-delay: 300ms; }
-.post:nth-child(3) { animation-delay: 500ms; }
-.post:nth-child(4) { animation-delay: 700ms; }
-.post:nth-child(5) { animation-delay: 900ms; }
-
-@keyframes scrollCarousel {
-from { transform: translateX(0); }
-to { transform: translateX(-50%); }
-}
-
-@keyframes postPop {
-0% {
-    opacity: 0;
-    transform: translateY(20px);
-}
-100% {
-    opacity: 1;
-    transform: translateY(0);
-}
+#swap-btn:hover {
+transform: scale(1.03);
 }
 
 /* Community / Follow */
@@ -577,6 +577,26 @@ opacity: 1;
 transition: opacity 0.4s ease;
 }
 
+/* Token Modal */
+#token-modal {
+display: none;
+position: fixed;
+inset: 0;
+background: rgba(10,11,13,0.85);
+z-index: 100000;
+align-items: center;
+justify-content: center;
+}
+
+#token-modal .modal-content {
+background: var(--bg-card);
+width: 90%;
+max-width: 360px;
+border-radius: 28px;
+padding: 24px;
+box-shadow: 0 24px 80px rgba(0,0,0,0.5);
+}
+
 /* Responsive */
 @media (max-width: 900px) {
 header {
@@ -714,100 +734,152 @@ left: 12px;
                     <h3 class="feature-title">Self-Custody</h3>
                     <p class="feature-desc">Your keys, your crypto. Total control over your digital assets with BASE. </p>
                 </div>
+                <!-- NEW FEATURE: Native Base Mainnet Swap -->
+                <div class="feature-card">
+                    <span class="feature-icon">🔄</span>
+                    <h3 class="feature-title">Instant Swap</h3>
+                    <p class="feature-desc">Trade any token on Base Mainnet (USDC, ETH, cbETH, AERO &amp; more) with live prices and sub-penny gas.</p>
+                </div>
             </div>
         </div>
 
-        <!-- App Mockup Area - NOW FULLY ANIMATED SCROLLABLE FEED -->
+        <!-- App Mockup Area - NOW WITH TABS + FULL INTERACTIVE SWAP INTERFACE (Base Mainnet) -->
         <div class="section" style="text-align: center;">
-            <span class="label-mono">Platform</span>
+            <span class="label-mono">Platform • Live on Base Mainnet</span>
             <h2 class="scene-title">Built for the Onchain User</h2>
-            <p class="scene-subtitle">Join thousands of users discovering and building in the Base ecosystem.<br><strong>Trade • Earn • Predict • Chat with friends or agents</strong></p>
+            <p class="scene-subtitle">Join thousands of users discovering and building in the Base ecosystem.<br><strong>Feed • Swap • Earn • Predict • Chat</strong></p>
             
             <div class="app-mockup">
                 <!-- App header -->
-                <div class="mockup-feed-header">
+                <div class="app-header">
                     <div style="width: 32px; height: 32px; background: var(--base-blue); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 18px; color: white;">B</div>
-                    Base Feed
-                    <div style="margin-left:auto; font-size:13px; background:#00ff9d; color:#0A0B0D; padding:2px 10px; border-radius:9999px; font-weight:700;">LIVE</div>
+                    Base App
+                    <div style="margin-left:auto; font-size:13px; background:#00ff9d; color:#0A0B0D; padding:2px 10px; border-radius:9999px; font-weight:700;">LIVE • BASE MAINNET</div>
                 </div>
 
-                <!-- Feature bar -->
-                <div class="feed-feature-bar">
-                    <span>📈 Trade</span>
-                    <span>💰 Earn</span>
-                    <span>🔮 Predict</span>
-                    <span>💬 Agents &amp; Friends</span>
+                <!-- NEW: Dynamic tabs (Feed + Swap) -->
+                <div class="mockup-tabs">
+                    <div class="tab active" onclick="switchAppTab(0)">Feed</div>
+                    <div class="tab" onclick="switchAppTab(1)">Swap</div>
                 </div>
 
-                <!-- Horizontal Carousel: Trending trades, collectibles, live events -->
-                <div class="feed-carousel">
-                    <div class="carousel-inner" id="carousel-inner">
-                        <!-- Card 1 - Trending Trade -->
-                        <div class="carousel-card">
-                            <div class="card-icon">📈</div>
-                            <div class="card-content">
-                                <div class="card-title">Trending Trade</div>
-                                <div class="card-value">USDC → ETH +18.7%</div>
-                                <div class="card-desc">420k volume • 2 min ago</div>
+                <!-- FEED VIEW (original content) -->
+                <div id="feed-content" class="feed-content">
+                    <!-- Horizontal Carousel: Trending trades, collectibles, live events -->
+                    <div class="feed-carousel">
+                        <div class="carousel-inner" id="carousel-inner">
+                            <!-- Card 1 - Trending Trade -->
+                            <div class="carousel-card">
+                                <div class="card-icon">📈</div>
+                                <div class="card-content">
+                                    <div class="card-title">Trending Trade</div>
+                                    <div class="card-value">USDC → ETH +18.7%</div>
+                                    <div class="card-desc">420k volume • 2 min ago</div>
+                                </div>
                             </div>
-                        </div>
-                        
-                        <!-- Card 2 - New Collectible -->
-                        <div class="carousel-card">
-                            <div class="card-icon">🪙</div>
-                            <div class="card-content">
-                                <div class="card-title">New Collectible</div>
-                                <div class="card-value">BasePFP #1337</div>
-                                <div class="card-desc">Limited mint • 0.001 ETH</div>
+                            
+                            <!-- Card 2 - New Collectible -->
+                            <div class="carousel-card">
+                                <div class="card-icon">🪙</div>
+                                <div class="card-content">
+                                    <div class="card-title">New Collectible</div>
+                                    <div class="card-value">BasePFP #1337</div>
+                                    <div class="card-desc">Limited mint • 0.001 ETH</div>
+                                </div>
                             </div>
-                        </div>
-                        
-                        <!-- Card 3 - Live Chat Event -->
-                        <div class="carousel-card">
-                            <div class="card-icon">💬</div>
-                            <div class="card-content">
-                                <div class="card-title">Live Agent Chat</div>
-                                <div class="card-value">BTC to $120k?</div>
-                                <div class="card-desc">AI agent + 184 online</div>
+                            
+                            <!-- Card 3 - Live Chat Event -->
+                            <div class="carousel-card">
+                                <div class="card-icon">💬</div>
+                                <div class="card-content">
+                                    <div class="card-title">Live Agent Chat</div>
+                                    <div class="card-value">BTC to $120k?</div>
+                                    <div class="card-desc">AI agent + 184 online</div>
+                                </div>
                             </div>
-                        </div>
-                        
-                        <!-- Duplicates for seamless infinite scroll -->
-                        <div class="carousel-card">
-                            <div class="card-icon">📈</div>
-                            <div class="card-content">
-                                <div class="card-title">Trending Trade</div>
-                                <div class="card-value">USDC → ETH +18.7%</div>
-                                <div class="card-desc">420k volume • 2 min ago</div>
+                            
+                            <!-- Duplicates for seamless infinite scroll -->
+                            <div class="carousel-card">
+                                <div class="card-icon">📈</div>
+                                <div class="card-content">
+                                    <div class="card-title">Trending Trade</div>
+                                    <div class="card-value">USDC → ETH +18.7%</div>
+                                    <div class="card-desc">420k volume • 2 min ago</div>
+                                </div>
                             </div>
-                        </div>
-                        <div class="carousel-card">
-                            <div class="card-icon">🪙</div>
-                            <div class="card-content">
-                                <div class="card-title">New Collectible</div>
-                                <div class="card-value">BasePFP #1337</div>
-                                <div class="card-desc">Limited mint • 0.001 ETH</div>
+                            <div class="carousel-card">
+                                <div class="card-icon">🪙</div>
+                                <div class="card-content">
+                                    <div class="card-title">New Collectible</div>
+                                    <div class="card-value">BasePFP #1337</div>
+                                    <div class="card-desc">Limited mint • 0.001 ETH</div>
+                                </div>
                             </div>
-                        </div>
-                        <div class="carousel-card">
-                            <div class="card-icon">💬</div>
-                            <div class="card-content">
-                                <div class="card-title">Live Agent Chat</div>
-                                <div class="card-value">BTC to $120k?</div>
-                                <div class="card-desc">AI agent + 184 online</div>
+                            <div class="carousel-card">
+                                <div class="card-icon">💬</div>
+                                <div class="card-content">
+                                    <div class="card-title">Live Agent Chat</div>
+                                    <div class="card-value">BTC to $120k?</div>
+                                    <div class="card-desc">AI agent + 184 online</div>
+                                </div>
                             </div>
                         </div>
                     </div>
+
+                    <!-- Vertical scrollable feed with more info -->
+                    <div class="feed-posts">
+                        <div class="post">🚀 Just earned <strong>12.4% APY</strong> staking BASE — real yield, transparent onchain</div>
+                        <div class="post">💸 Sent 5,000 USDC to a friend instantly — sub-penny fees, self-custodial</div>
+                        <div class="post">🔮 Predicted the next market move with Base AI agent and won 0.8 ETH reward</div>
+                        <div class="post">👥 Chatting live with @baseapp agent and community degens about the next airdrop</div>
+                        <div class="post">🏆 New onchain collectible unlocked • Trade it or stake it for extra yield</div>
+                        <div class="post">📍 Global transfer complete • 12 seconds • $0.0004 fee • Full Ethereum security</div>
+                    </div>
                 </div>
 
-                <!-- Vertical scrollable feed with more info -->
-                <div class="feed-posts">
-                    <div class="post">🚀 Just earned <strong>12.4% APY</strong> staking BASE — real yield, transparent onchain</div>
-                    <div class="post">💸 Sent 5,000 USDC to a friend instantly — sub-penny fees, self-custodial</div>
-                    <div class="post">🔮 Predicted the next market move with Base AI agent and won 0.8 ETH reward</div>
-                    <div class="post">👥 Chatting live with @baseapp agent and community degens about the next airdrop</div>
-                    <div class="post">🏆 New onchain collectible unlocked • Trade it or stake it for extra yield</div>
-                    <div class="post">📍 Global transfer complete • 12 seconds • $0.0004 fee • Full Ethereum security</div>
+                <!-- NEW: SWAP VIEW - Interactive Base Mainnet Swapping Interface -->
+                <div id="swap-content" class="swap-content" style="display: none;">
+                    <div class="swap-box">
+                        <div class="token-header">
+                            <span>You pay</span>
+                            <span id="from-balance-display" style="font-family: var(--font-mono);">Balance: <span id="from-bal">1,245.67</span></span>
+                        </div>
+                        <div class="token-main">
+                            <input type="number" id="from-amount" value="100" oninput="calculateSwap()">
+                            <div class="token-select" id="from-token-select" onclick="showTokenModal('from')">
+                                <span id="from-icon">💵</span>
+                                <span id="from-symbol">USDC</span>
+                                <span style="font-size:18px;">▼</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="swap-arrow" onclick="switchTokens()">↕</div>
+
+                    <div class="swap-box">
+                        <div class="token-header">
+                            <span>You receive</span>
+                            <span id="to-balance-display" style="font-family: var(--font-mono);">Balance: <span id="to-bal">12.45</span></span>
+                        </div>
+                        <div class="token-main">
+                            <input type="number" id="to-amount" value="0.039" readonly>
+                            <div class="token-select" id="to-token-select" onclick="showTokenModal('to')">
+                                <span id="to-icon">⟠</span>
+                                <span id="to-symbol">ETH</span>
+                                <span style="font-size:18px;">▼</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="swap-details" id="swap-info">
+                        <div><span>Rate</span> <span id="rate-display">1 USDC ≈ 0.00039 ETH</span></div>
+                        <div><span>Network</span> <span style="color:#00ff9d;">Base Mainnet</span></div>
+                        <div><span>Est. Gas Fee</span> <span style="color:#00ff9d;">$0.0002</span></div>
+                        <div><span>Price Impact</span> <span style="color:#00ff9d;">0.01%</span></div>
+                        <div><span>Route</span> <span style="font-family:var(--font-mono);">Uniswap V3 • Base</span></div>
+                    </div>
+
+                    <button id="swap-btn" onclick="performSwap()">Swap Now on Base Mainnet</button>
                 </div>
             </div>
         </div>
@@ -893,6 +965,15 @@ left: 12px;
     </div>
 </div>
 
+<!-- Token Selection Modal (Base Mainnet tokens) -->
+<div id="token-modal">
+    <div class="modal-content">
+        <h3 style="margin-bottom: 20px; text-align: center; font-size: 20px;">Select Token • Base Mainnet</h3>
+        <div id="token-list" style="display: flex; flex-direction: column; gap: 12px; max-height: 420px; overflow-y: auto;"></div>
+        <button onclick="hideTokenModal()" style="margin-top: 24px; width: 100%; padding: 14px; background: transparent; border: 1px solid var(--border-color); color: var(--text-muted); border-radius: 9999px; font-weight: 600;">Cancel</button>
+    </div>
+</div>
+
 <!-- JavaScript -->
 <script>
 document.addEventListener('DOMContentLoaded', () => {
@@ -916,7 +997,7 @@ document.addEventListener('DOMContentLoaded', () => {
         sectionObserver.observe(section);
     });
 
-    // 2. Mascot Speech Logic (unchanged but still cycling)
+    // 2. Mascot Speech Logic
     const speechElement = document.getElementById('speech-text');
     const speechBubble = document.getElementById('speech-bubble');
 
@@ -945,7 +1026,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     setInterval(cycleSpeech, 4800);
 
-    // 3. NEW: Animated Base logos rising from the ground (the "ground" is now alive)
+    // 3. Animated Base logos rising from the ground
     const particlesContainer = document.getElementById('logo-particles');
     if (particlesContainer) {
         for (let i = 0; i < 28; i++) {
@@ -961,7 +1042,159 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    console.log('%c🔵 Base Community Hub Loaded with dancing mascot + animated feed + floating Base logos', 'color: #0052FF; font-size: 14px; font-weight: bold;');
+    // ====================== NEW: SWAP INTERFACE LOGIC (Base Mainnet) ======================
+    // Real tokens live on Base Mainnet
+    let availableTokens = [
+        { id: 0, symbol: 'USDC', icon: '💵', name: 'USD Coin', balance: '1245.67', price: 1.00 },
+        { id: 1, symbol: 'ETH', icon: '⟠', name: 'Ethereum', balance: '12.45', price: 2567.89 },
+        { id: 2, symbol: 'cbETH', icon: '🔵', name: 'Coinbase Wrapped ETH', balance: '8.32', price: 2648.50 },
+        { id: 3, symbol: 'AERO', icon: '🪂', name: 'Aerodrome', balance: '892.44', price: 1.45 }
+    ];
+
+    let currentFrom = 0;
+    let currentTo = 1;
+    let selectingFor = 'from';
+
+    function updateTokenDisplays() {
+        // From
+        document.getElementById('from-icon').textContent = availableTokens[currentFrom].icon;
+        document.getElementById('from-symbol').textContent = availableTokens[currentFrom].symbol;
+        document.getElementById('from-bal').textContent = availableTokens[currentFrom].balance;
+        
+        // To
+        document.getElementById('to-icon').textContent = availableTokens[currentTo].icon;
+        document.getElementById('to-symbol').textContent = availableTokens[currentTo].symbol;
+        document.getElementById('to-bal').textContent = availableTokens[currentTo].balance;
+    }
+
+    function calculateSwap() {
+        const fromAmt = parseFloat(document.getElementById('from-amount').value) || 0;
+        if (fromAmt <= 0) {
+            document.getElementById('to-amount').value = '0';
+            return;
+        }
+        
+        const fromPrice = availableTokens[currentFrom].price;
+        const toPrice = availableTokens[currentTo].price;
+        const toAmt = (fromAmt * fromPrice / toPrice).toFixed(6);
+        
+        document.getElementById('to-amount').value = toAmt;
+
+        // Update rate info
+        const rateText = `1 ${availableTokens[currentFrom].symbol} ≈ ${(availableTokens[currentTo].price / availableTokens[currentFrom].price).toFixed(6)} ${availableTokens[currentTo].symbol}`;
+        document.getElementById('rate-display').textContent = rateText;
+    }
+
+    function switchTokens() {
+        // Swap the two tokens
+        [currentFrom, currentTo] = [currentTo, currentFrom];
+        updateTokenDisplays();
+        calculateSwap();
+    }
+
+    function showTokenModal(forWhat) {
+        selectingFor = forWhat;
+        const listEl = document.getElementById('token-list');
+        listEl.innerHTML = '';
+
+        availableTokens.forEach(token => {
+            // Don't show the currently selected token in the opposite slot
+            if ((selectingFor === 'from' && token.id === currentTo) || 
+                (selectingFor === 'to' && token.id === currentFrom)) return;
+
+            const div = document.createElement('div');
+            div.style.cssText = 'display:flex; align-items:center; gap:16px; padding:14px; background:rgba(255,255,255,0.06); border-radius:16px; cursor:pointer; transition:all 0.2s;';
+            div.innerHTML = `
+                <span style="font-size:32px;">${token.icon}</span>
+                <div style="flex:1;">
+                    <div style="font-weight:700;">${token.symbol}</div>
+                    <div style="font-size:13px; color:var(--text-muted);">${token.name}</div>
+                </div>
+                <div style="text-align:right; font-family:var(--font-mono);">
+                    ${token.balance}<br>
+                    <span style="font-size:12px;">$${token.price}</span>
+                </div>
+            `;
+            div.onclick = () => {
+                if (selectingFor === 'from') currentFrom = token.id;
+                else currentTo = token.id;
+                updateTokenDisplays();
+                hideTokenModal();
+                calculateSwap();
+            };
+            listEl.appendChild(div);
+        });
+
+        document.getElementById('token-modal').style.display = 'flex';
+    }
+
+    function hideTokenModal() {
+        document.getElementById('token-modal').style.display = 'none';
+    }
+
+    function performSwap() {
+        const btn = document.getElementById('swap-btn');
+        const originalText = btn.textContent;
+        
+        btn.style.transition = 'all 0.3s';
+        btn.textContent = 'Confirming on Base Mainnet…';
+        btn.disabled = true;
+
+        // Simulate blockchain confirmation (Base Mainnet speed)
+        setTimeout(() => {
+            btn.textContent = originalText;
+            btn.disabled = false;
+
+            // Success banner
+            const success = document.createElement('div');
+            success.style.cssText = 'background:#00ff9d; color:#0A0B0D; padding:20px; border-radius:20px; text-align:center; margin-top:20px; animation: postPop 0.6s ease;';
+            success.innerHTML = `
+                ✅ Swap Successful!<br>
+                <span style="font-size:13px; font-family:var(--font-mono);">Tx Hash: 0x7f3a9c2e...d8f4b1e9 (Base Mainnet)</span><br>
+                <span style="font-size:15px;">You received ${document.getElementById('to-amount').value} ${availableTokens[currentTo].symbol}</span>
+                <div onclick="this.remove()" style="margin-top:16px; background:#0A0B0D; color:#00ff9d; padding:10px 24px; border-radius:9999px; display:inline-block; cursor:pointer; font-weight:700;">Close • View on Basescan</div>
+            `;
+            document.getElementById('swap-content').appendChild(success);
+
+            // Reset amounts slightly for demo realism
+            document.getElementById('from-amount').value = '0';
+            calculateSwap();
+
+            console.log('%c🔵 Swap executed on Base Mainnet!', 'color:#00ff9d; font-weight:bold;');
+        }, 1650);
+    }
+
+    // Tab switching between Feed and Swap
+    window.switchAppTab = function(tabIndex) {
+        const feedContent = document.getElementById('feed-content');
+        const swapContent = document.getElementById('swap-content');
+        const tabs = document.querySelectorAll('.tab');
+
+        // Reset all tabs
+        tabs.forEach(tab => tab.classList.remove('active'));
+
+        if (tabIndex === 0) {
+            // Feed
+            feedContent.style.display = 'block';
+            swapContent.style.display = 'none';
+            tabs[0].classList.add('active');
+        } else {
+            // Swap
+            feedContent.style.display = 'none';
+            swapContent.style.display = 'block';
+            tabs[1].classList.add('active');
+            
+            // Initialize swap UI on first open
+            if (!window.swapInitialized) {
+                updateTokenDisplays();
+                calculateSwap();
+                window.swapInitialized = true;
+            }
+        }
+    };
+
+    // Initialize swap data
+    console.log('%c🔵 Base Community Hub Loaded with dancing mascot + animated feed + FULL Base Mainnet SWAP interface', 'color: #0052FF; font-size: 14px; font-weight: bold;');
 });
 </script>
 </body>
